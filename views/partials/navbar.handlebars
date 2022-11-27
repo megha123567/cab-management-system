@@ -1,4 +1,4 @@
-<nav class="navbar" style="background-color: #f1e0f8;">
+<nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><b>MY CAB</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -6,30 +6,40 @@
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My Cab</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color:black">My Cab</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/login">Login</a>
+            <a class="nav-link active" aria-current="page" href="/home" style="color:black">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/register">Register</a>
+            <a class="nav-link active" aria-current="page" href="/login" style="color:black">LOGIN</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+            <a class="nav-link active" aria-current="page" href="/register"style="color:black">REGISTER</a>
           </li>
-           {{!-- <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/login">Logout</a>
-          </li> --}}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/cab" style="color:black">BOOK CAB</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/aboutus" style="color:black">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="askedquestions" style="color:black">FAQ'S</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/contactus" style="color:black">CONTACT US</a>
+          </li>
+          
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black">
               Admin
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/admin/login">Login</a></li>
-              <li><a class="dropdown-item" href="/admin/register">Register</a></li>
+              <li><a class="dropdown-item" href="/admin/login" style="color:black">Login</a></li>
+              <li><a class="dropdown-item" href="/admin/register" style="color:black">Register</a></li>
             </ul>
           </li>
         </ul>

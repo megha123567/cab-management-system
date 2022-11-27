@@ -27,7 +27,7 @@ module.exports.loginPost = async (req, res, next) => {
     // res.render('login');
     req.session.passengerId = userFromDb.passengerId
 
-    res.render('index');
+    res.render('home');
 }
 
 
@@ -60,7 +60,7 @@ module.exports.registerPost = async (req, res, next) => {
     });
 
     // res.redirect('/login');
-    res.render('index')
+    res.render('login')
 }
 
 module.exports.passengerUpdate = (req, res, next)=>{

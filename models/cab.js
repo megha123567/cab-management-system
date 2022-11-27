@@ -23,6 +23,10 @@ const Cab = db.sequelize.define('Cab', {
     driver_id: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    cost: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 });
 

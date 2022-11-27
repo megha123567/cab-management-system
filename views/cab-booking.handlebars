@@ -1,0 +1,27 @@
+<h1 class="text-center">Cab Details</h1>
+<div class="container">
+    <table class="table table-striped m-4">
+        <tr>
+            <th>Cab No</th>
+            <th>Cab Name</th>
+            <th>Cab Description</th>
+            <th>Total Capacity</th>
+            {{!-- <th>Driver Id</th> --}}
+            <th>Book Cab</th>
+        </tr>
+        {{#each data}}
+
+        <tr>
+            <td>{{this.dataValues.cab_no}}</td>
+            <td>{{this.dataValues.cab_name}}</td>
+            <td>{{this.dataValues.cab_description}}</td>
+            <td>{{this.dataValues.total_capacity}}</td>
+            {{!-- <td>{{this.dataValues.driver_id}}</td> --}}
+            <td>
+                <a href="/booking/create">Book Now</a>|
+            </td>
+            
+        </tr>
+        {{/each}}
+    </table>
+</div>
