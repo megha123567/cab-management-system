@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="text-center"> Update Booking Details</h1>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form method="post">
+                {{!-- <div>
+                    <label for="bookingid">Booking Id</label>
+                    <input type="number" name="bookingid" id="bookingid" class="form-control" value="{{data.dataValues.booking_id}}">
+                </div> --}}
+                <div>
+                    <label for="dateofbooking">Date of Booking</label>
+                    <input type="date" name="dateofbooking" id="dateofbooking" class="form-control" value="{{data.dataValues.date_of_booking}}">
+                </div>
+                <div>
+                    <label for="cabfrom">Cab From</label>
+                    <input type="text" name="cabfrom" id="cabfrom" class="form-control" value="{{data.dataValues.cab_from}}">
+                </div>
+                <div>
+                    <label for="cabto">Cab To</label>
+                    <input type="text" name="cabto" id="cabto" class="form-control" value="{{data.dataValues.cab_to}}">
+                </div>
+                <div>
+                    <label for="bookingtime">Booking Time</label>
+                    <input type="time" name="bookingtime" id="bookingtime" class="form-control" value="{{data.dataValues.booking_time}}">
+                </div>
+                <div>
+                    <label for="cabno">Cab No</label>
+                    <input type="number" name="cabno" id="cabno" class="form-control" value="{{data.dataValues.cab_no}}">
+                </div>
+                <div>
+                    <label for="cost">Cost</label>
+                    <input type="number" name="cost" id="cost" class="form-control" value="{{data.dataValues.cost}}">
+                </div>
+                <div>
+                    <label for="passengerid">Passenger Id</label>
+                    <input type="number" name="passengerid" id="passengerid" class="form-control" value="{{data.dataValues.passenger_id}}">
+                </div>
+                <div>
+                    <label for="driverid">Driver Id</label>
+                    <input type="number" name="driverid" id="driverid" class="form-control" value="{{data.dataValues.driver_id}}">
+                </div>
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

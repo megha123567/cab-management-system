@@ -1,0 +1,36 @@
+<h1 class="text-center">Driver Details</h1>
+<div class="container">
+    <table class="table table-stripped m-4">
+        <tr>
+            <th>Driver Id</th>
+            <th>Driver license no</th>
+            <th>Driver Name</th>
+            <th>Driver Email</th>
+            <th>Driver Password</th>
+            <th>Driver Mobile</th>
+            <th>Driver Address</th>
+            <th>Driver Dob</th>
+            <th>Driver Gender</th>
+        </tr>
+        {{#each data}}
+
+        <tr>
+            <td>{{this.dataValues.driver_id}}</td>
+            <td>{{this.dataValues.driver_license_no}}</td>
+            <td>{{this.dataValues.driver_name}}</td>
+            <td>{{this.dataValues.driver_email}}</td>
+            <td>{{this.dataValues.driver_password}}</td>
+            <td>{{this.dataValues.driver_mobile}}</td>
+            <td>{{this.dataValues.driver_address}}</td>
+            <td>{{this.dataValues.driver_dob}}</td>
+            <td>{{this.dataValues.driver_gender}}</td>
+            <td>
+                <a href="/update/{{this.dataValues.driver_id}}">Edit</a> |
+                <a href="/delete/{{this.dataValues.driver_id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </td>
+        </tr>
+
+        {{/each}}
+
+    </table>
+</div>

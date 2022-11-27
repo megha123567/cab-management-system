@@ -1,0 +1,35 @@
+<h1 class="text-center">Passenger Details</h1>
+<div class="container">
+    <table class="table table-stripped m-4">
+        <tr>
+            <th>Passenger Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Password </th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Edit/Delete</th>
+        </tr>
+        {{#each data}}
+
+        <tr>
+            <td>{{this.dataValues.passenger_id}}</td>
+            <td>{{this.dataValues.fisrtName}}</td>
+            <td>{{this.dataValues.lastName}}</td>
+            <td>{{this.dataValues.email}}</td>
+            <td>{{this.dataValues.password}}</td>
+            <td>{{this.dataValues.mobile}}</td>
+            <td>{{this.dataValues.address}}</td>
+            <td>{{this.dataValues.dob}}</td>
+            <td>{{this.dataValues.gender}}</td>
+            <td>
+                <a href="/update/{{this.dataValues.passenger_id}}">Edit</a> |
+                <a href="/delete/{{this.dataValues.passenger_id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="text-center">Update Passenger Details</h1>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form method="post">
+                <div>
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="firstName" value="{{data.dataValues.fisrtName}}">
+                </div>
+                <div>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="lastName" value="{{data.dataValues.lastName}}">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="example@mail.com" class="form-control" value="{{data.dataValues.email}}">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password"  class="form-control" value="{{data.dataValues.password}}">
+                </div>
+                <div>
+                    <label for="mobile">Mobile</label>
+                    <input type="number" name="mobile" id="mobile" class="form-control" value="{{data.dataValues.mobile}}">
+                </div>
+                <div>
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" class="form-control" value="{{data.dataValues.address}}">
+                </div>
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" name="dob" id="dob" class="form-control" value="{{data.dataValues.dob}}">
+                </div>
+                <div>
+                    <label for="gender">Gender</label>
+                    <input type="radio" name="gender" id="male"  value="{{data.dataValues.gender}}"> Male
+                    <input type="radio" name="gender" id="female"  value="{{data.dataValues.gender}}"> Female
+                </div>
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    {{#if message}}
+                    <p class="text-danger">{{message}}</p>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
