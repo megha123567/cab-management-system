@@ -25,9 +25,12 @@ module.exports.loginPost = async (req, res, next) => {
     }
     // console.log(userFromDb);
     // res.render('login');
-    req.session.passengerId = userFromDb.passengerId
+    req.session.passengerId = userFromDb.passenger_id
+    // console.log("Login post======");
+    console.log(req.session.passengerId)
 
-    res.render('home');
+
+    res.redirect('/home');
 }
 
 
@@ -59,8 +62,8 @@ module.exports.registerPost = async (req, res, next) => {
         gender: req.body.gender
     });
 
-    // res.redirect('/login');
-    res.render('login')
+    // res.redirect('home');
+    res.render('/cab')
 }
 
 module.exports.passengerUpdate = (req, res, next)=>{
@@ -87,7 +90,7 @@ module.exports.passengerUpdatePost = async(req, res, next)=>{
     {
         where: {passengerid: req.params.passenger_id}
     })
-    res.redirect('/')
+    res.redirect('/home')
 }
 
 module.exports.passengerDelete = async(req, res, next)=>{

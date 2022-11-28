@@ -8,6 +8,7 @@ module.exports.index = (req, res, next) =>{
     })
 }
 
+
 module.exports.create = (req, res, next)=>{
     res.render('cab-create');
 };
@@ -18,7 +19,8 @@ module.exports.createPost = (req, res, next)=>{
         cab_name: req.body.cabName,
         cab_description: req.body.cabDescription,
         total_capacity: req.body.totalCapacity,
-        driver_id: req.body.driverId
+        driver_id: req.body.driverId,
+        cost: req.body.cost
     })
     .then(user =>{
         res.redirect('/');
@@ -41,7 +43,8 @@ module.exports.updatePost = async(req, res, next)=>{
             cab_name: req.body.cabName,
             cab_description: req.body.cabDescription,
             total_capacity: req.body.totalCapacity,
-            driver_id: req.body.driverId  
+            driver_id: req.body.driverId ,
+            cost: req.body.cost
         },
         {
             where: {cabNo : req.params.cab_no}
@@ -61,4 +64,16 @@ module.exports.delete = async(req, res, next)=>{
         });
         res.redirect('/');
     }
+}
+
+
+module.exports.cabAvailable = (req, res, next)=>{
+    // res.render('cab-available');
+
+    Cab.findAll().then(cabs=>{
+        res.render('cab-available', {
+            data: cabs
+        });
+    })
+
 }

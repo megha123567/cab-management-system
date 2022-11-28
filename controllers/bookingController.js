@@ -7,6 +7,20 @@ module.exports.bookingIndex = ( req, res, next)=>{
         });
     });
 }
+module.exports.booking = (req, res, next)=>{
+    res.render('booking');
+}
+module.exports.bookingpost = (req, res, next)=>{
+    Booking.create({
+        date_of_booking: req.body.dateofbooking, 
+        cab_from: req.body.cabfrom,
+        cab_to: req.body.cabto,
+        booking_time: req.body.bookingtime, 
+    })
+    .then(user =>{
+        res.redirect('/')
+    })
+}
 
 module.exports.bookingCreate = (req, res, next)=>{
     res.render('booking-create');

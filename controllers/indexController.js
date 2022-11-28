@@ -15,3 +15,7 @@ module.exports.contactus = (req, res, next)=>{
     res.render('contactus')
 }
 
+module.exports.payment = (req, res, next)=>{
+    res.render('payment')
+}
+

@@ -6,10 +6,15 @@ module.exports = async (req, res, next) => {
         isAuthenticated: false,
         Passenger: null
     }
-    if (req.url == "/login" || req.url == "/register") {
+    // console.log('🚗')
+    if (req.url == "/login"  || req.url == "/register" ) {
+    console.log('🚗')
+
         return next();
     }
     let passengerId = req.session.passengerId;
+    console.log('🚗🚗')
+    console.log(passengerId)
     if (!passengerId || passengerId == null) {
         return res.redirect("/login");
     }

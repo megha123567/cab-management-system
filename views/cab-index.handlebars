@@ -1,13 +1,14 @@
-<h1 class="text-center">Cab Details</h1>
+<h1 class="text-center" style="color: white;"> Cab Details</h1>
 <div class="container">
-    <table class="table table-striped m-4">
-        <tr>
-            <th>Cab No</th>
-            <th>Cab Name</th>
-            <th>Cab Description</th>
-            <th>Total Capacity</th>
-            <th>Driver Id</th>
-            <th>Edit/delete</th>
+    <table class="table table-striped m-4" style="color: white;" >
+        <tr >
+            <th style="color: white;" >Cab No</th>
+            <th style="color: white;">Cab Name</th>
+            <th style="color: white;">Cab Description</th>
+            <th style="color: white;">Total Capacity</th>
+            <th style="color: white;">Cost</th>
+            <th style="color: white;">Driver Id</th>
+            <th style="color: white;">Edit/delete</th>
         </tr>
         {{#each data}}
 
@@ -16,12 +17,16 @@
             <td>{{this.dataValues.cab_name}}</td>
             <td>{{this.dataValues.cab_description}}</td>
             <td>{{this.dataValues.total_capacity}}</td>
+            <td>{{this.dataValues.cost}}</td>
             <td>{{this.dataValues.driver_id}}</td>
-            <td>
+        {{!-- <td><a href="/booking/booking">Book Now</a></td> --}}
+     
+           <td>
                 <a href="/update/{{this.dataValues.cab_no}}">Edit</a>|
                 <a href="/delete/{{this.dataValues.cab_no}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
             </td>
-            
+        
+    
         </tr>
         {{/each}}
     </table>
