@@ -1,16 +1,38 @@
-<div class="col-sm-6 offset-sm-4">
-    <pre>
 
-
-    </pre>
-    <div class="card" style="width: 30rem;">
-        <div class="card-body">
-            <h5 class="card-title text-center">Payment</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Online Payment</li>
-            <li class="list-group-item">Cash Payment To Driver</li>
-            <li class="list-group-item">Bank Transfer</li>
-        </ul>
-    </div>
+{{!-- <div>
+    <table class="table">
+        <tr>
+            <td>From</td>
+            <td>To</td>
+            <td>cost</td>
+            <td><button class="btn btn-success">Pay now</button></td>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td>{{data.dataValues.cab_from}}</td>
+            <td>{{data.dataValues.cab_to}}</td>
+            <td>{{data.dataValues.cost}}</td>
+            
+        </tr>
+        {{/each}}
+    </table>
+</div> --}}
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>Cab From</th>
+            <th>Cab To</th>
+            <th>Cost</th>
+        </tr>
+        <tr>
+            <td>{{data.dataValues.cab_from}}</td>
+            <td>{{data.dataValues.cab_to}}</td>
+            <td>{{data.dataValues.cost}}</td>
+            <td>
+                <a href="/booking/paymentInvoice/{{data.dataValues.cab_no}}">
+                    <button class="btn btn-outline-success">Pay Now</button>
+                </a>
+            </td>
+        </tr>
+    </table>
 </div>
