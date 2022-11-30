@@ -23,7 +23,7 @@ module.exports.createPost = (req, res, next)=>{
         cost: req.body.cost
     })
     .then(user =>{
-        res.redirect('/');
+        res.redirect('/cab');
     })
 }
 
@@ -50,7 +50,7 @@ module.exports.updatePost = async(req, res, next)=>{
             where: {cabNo : req.params.cab_no}
         }
     )
-    res.redirect('/');
+    res.redirect('/cab');
 }
 
 module.exports.delete = async(req, res, next)=>{
@@ -62,7 +62,7 @@ module.exports.delete = async(req, res, next)=>{
                 cab_no : cabNo
             }
         });
-        res.redirect('/');
+        res.redirect('/cab');
     }
 }
 
@@ -72,7 +72,8 @@ module.exports.cabAvailable = (req, res, next)=>{
 
     Cab.findAll().then(cabs=>{
         res.render('cab-available', {
-            data: cabs
+            data: cabs,
+            cab: req.identity.Passenger,
         });
     })
 

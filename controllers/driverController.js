@@ -9,38 +9,21 @@ module.exports.driverIndex = (req, res, next)=>{
     })
 }
 
-module.exports.driverLogin = (req, res, next)=>{
-    res.render('driver-login');
-}
-
-module.exports.driverLoginPost = async(req, res, next)=>{
-    const {driveremail, driverpassword} = req.body;
-    const userFromDb = await Driver.findOne({
-        where: {driver_email: driveremail, driver_password: driverpassword}
-    });
-
-    if(userFromDb == null){
-        return res.render('driver-login', {message: 'No user with this email or password'})
-    }
-    req.session.DriverId = userFromDb.driverid;
-    res.render('index');
-}
-
 module.exports.driverRegister = (req, res, next)=>{
     res.render('driver-register');
 }
 
-module.exports.driverRegisterPost = async(req, res, next)=>{
-    const {licenseno, drivername, driveremail, driverpassword, drivermobile, driveraddress, driverdob, drivergender} = req.body;
-    let existingUser = await Driver.findOne({
-        where: {
-            driver_email: driveremail,
-        }
-    });
-    if(existingUser){
-        return req.render('driver-register', {message: 'Already registered'})
-    }
-    await Driver.create({
+module.exports.driverRegisterPost = (req, res, next)=>{
+    // const {licenseno, drivername, driveremail, driverpassword, drivermobile, driveraddress, driverdob, drivergender} = req.body;
+    // let existingUser = await Driver.findOne({
+    //     where: {
+    //         driver_email: driveremail,
+    //     }
+    // });
+    // if(existingUser){
+    //     return req.render('driver-register', {message: 'Already registered'})
+    // }
+     Driver.create({
         driver_license_no: req.body.licenseno,
         driver_name: req.body.drivername,
         driver_email: req.body.driveremail,
@@ -50,7 +33,7 @@ module.exports.driverRegisterPost = async(req, res, next)=>{
         driver_dob: req.body.driverdob,
         driver_gender: req.body.drivergender
     });
-    res.redirect('./driver-login')
+    res.redirect('/driver')
 }
 
 
@@ -82,7 +65,7 @@ module.exports.driverUpdatePost = async(req, res, next)=>{
             where: {driverid : req.params.driver_id}
         }
     )
-    res.redirect('/');
+    res.redirect('/driver');
 }
 
 module.exports.driverDelete = async(req, res, next)=>{
@@ -94,6 +77,6 @@ module.exports.driverDelete = async(req, res, next)=>{
                 driver_id : driverid
             }
         });
-        res.redirect('/');
+        res.redirect('/driver');
     }
 }
