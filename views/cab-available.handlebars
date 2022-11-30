@@ -1,13 +1,16 @@
-<h1 class="text-center" style="color: white;">Available Cabs</h1>
+<h1 class="text-center">Available Cabs</h1>
 <div class="container">
-    <table class="table table-striped m-4" style="color: white;" >
-        <tr >
-            <th style="color: white;" >Cab No</th>
-            <th style="color: white;">Cab Name</th>
-            <th style="color: white;">Cab Description</th>
-            <th style="color: white;">Total Capacity</th>
-            <th style="color: white;">Cost</th>
-            <th style="color: white;">Book Now</th>
+    <table class="table table-striped m-4">
+        {{#if cab.role}}
+        <button class="btn btn-outline-primary"><a href="/cab/create">Add Cab</a></button>
+        {{/if}}
+        <tr>
+            <th>Cab No</th>
+            <th>Cab Name</th>
+            <th>Cab Description</th>
+            <th>Total Capacity</th>
+            {{!-- <th>Cost</th> --}}
+            <th>Book Now</th>
         </tr>
         {{#each data}}
 
@@ -16,15 +19,19 @@
             <td>{{this.dataValues.cab_name}}</td>
             <td>{{this.dataValues.cab_description}}</td>
             <td>{{this.dataValues.total_capacity}}</td>
-            <td>{{this.dataValues.cost}}</td>
-        <td><a href="/booking/booking">Book Now</a></td>
-     
-           {{!-- <td>
+            {{!-- <td>{{this.dataValues.cost}}</td> --}}
+            <td>
+                {{#if cab.role}}
                 <a href="/update/{{this.dataValues.cab_no}}">Edit</a>|
-                <a href="/delete/{{this.dataValues.cab_no}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+                <a href="/delete/{{this.dataValues.cab_no}}" class="text-danger"onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+                {{/if}}
+                <a href="/booking/create/{{this.dataValues.cab_no}}">Book Now</a>
+               
+
             </td>
-         --}}
-    
+
+
+
         </tr>
         {{/each}}
     </table>
