@@ -1,0 +1,28 @@
+<h1 class="text-center">Cab Routes</h1>
+<div class="container">
+    <button class="btn btn-outline-info"><a href="/payment/create">Add cab routes</a></button>
+    <pre>
+
+    </pre>
+    <table class="table table-striped">
+        <tr>
+            <th>Payment Id</th>
+            <th>Cab From</th>
+            <th>Cab To</th>
+            <th>Cost</th>
+            <th>Edit|delete</th>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td>{{this.dataValues.payment_id}}</td>
+            <td>{{this.dataValues.cab_from}}</td>
+            <td>{{this.dataValues.cab_to}}</td>
+            <td>{{this.dataValues.cost}}</td>
+            <td>
+                <a href="/payment/update/{{this.dataValues.payment_id}}">Edit</a> |
+                <a href="/payment/delete/{{this.dataValues.payment_id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
