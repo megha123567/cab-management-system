@@ -1,0 +1,53 @@
+<pre>
+</pre>
+
+<h1 class="text-center">Your Profile</h1>
+<pre>
+
+</pre>
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>FIrst name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Dob</th>
+        </tr>
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.fisrtName}}</td>
+            <td>{{data.lastName}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.mobile}}</td>
+            <td>{{data.dob}}</td>
+        </tr>
+    </table>
+</div>
+<pre>
+
+</pre>
+
+<div>
+    <button class="btn btn-outline-info"><a href="/update/{{data.passenger_id}}">Update your profile</a></button>
+</div>
+<pre>
+</pre>
+<div>
+    <button class="btn btn-outline-info"><a href="/delete/{{data.passenger_id}}" onclick="return confirm('Are you sure you want to delete this') ">Delete your profile</a></button>
+</div>
+<pre>
+</pre>
+<div>
+    {{#if data.role}}
+    <button class="btn btn-outline-info"><a href="/">View all passengers</a></button>
+    {{/if}}
+</div>
+<pre>
+</pre>
+<div>
+    {{#if data.role}}
+    <button class="btn btn-outline-info"><a href="/booking">View all booking</a></button>
+    {{/if}}
+</div>
