@@ -1,0 +1,41 @@
+<pre>
+
+    
+</pre>
+
+<div class="col-sm-6 offset-sm-3">
+    <div class="card">
+        <div class="card-header">
+           <h4>Payment Details</h4> 
+        </div>
+        <div class="card-body">
+            <div>
+                <label for="cardholdername">Card Holder Name</label>
+                <input type="text" name="cardholdername" id="cardholdername" class="form-control">
+            </div>
+            <div>
+                <label for="cardnumber">Card Number</label>
+                <input type="number" name="cardnumber" id="cardnumber" class="form-control">
+            </div>
+            <div>
+                <label for="expirydate">Card Expiry Date</label>
+                <input type="date" name="expirydate" id="expirydate" class="form-control">
+            </div>
+            <div>
+                <label for="cvv">CVV Number</label>
+                <input type="number" name="cvv" id="cvv" class="form-control">
+            </div>
+            <div>
+                <div>
+                    <label for="amount">Amount</label>
+                    <div>{{data.dataValues.cost}}</div>
+                </div>
+                
+            </div>
+
+        </div>
+        <div class="col-sm-6 offset-sm-5">
+            <button class="btn btn-outline-success"><a href="/booking/paymentInvoice/{{data.dataValues.booking_id}}">Pay Now</a></button>
+        </div>
+    </div>
+</div>
