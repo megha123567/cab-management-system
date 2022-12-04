@@ -2,6 +2,7 @@ const Passenger = require('./passenger');
 const Driver = require('./driver');
 const Cab = require('./cab');
 const Booking = require('./booking');
+const Payment = require('./payment');
 
 
 Driver.hasMany(Cab, {foreignKey:'driver_id'});
@@ -29,7 +30,8 @@ Booking.belongsTo(Driver, {
 
 
 
-Passenger.sync({alter: true});
-Driver.sync({alter: true});
-Cab.sync({alter: true});
-Booking.sync({alter:true});
+// Passenger.sync({alter: true});
+// Driver.sync({alter: true});
+// Cab.sync({alter: true});
+// Booking.sync({alter:true});
+Payment.sync({alter:true});

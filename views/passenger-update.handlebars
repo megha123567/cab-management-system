@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password"  class="form-control" value="{{data.dataValues.password}}">
+                    <input type="text" name="password" id="password"  class="form-control" value="{{data.dataValues.password}}">
                 </div>
                 <div>
                     <label for="mobile" >Mobile</label>
@@ -29,15 +29,15 @@
                 </div>
                 <div>
                     <label for="dob" >Date of Birth</label>
-                    <input type="date" name="dob" id="dob" class="form-control" value="{{data.dataValues.dob}}">
+                    <input type="text" name="dob" id="dob" class="form-control" value="{{data.dataValues.dob}}">
                 </div>
                 <div>
                     <label for="gender" >Gender</label>
-                    <input type="radio" name="gender" id="male"  value="{{data.dataValues.gender}}"> Male
-                    <input type="radio" name="gender" id="female"  value="{{data.dataValues.gender}}"> Female
+                    <input type="text" name="gender" id="male" class="form-control"  value="{{data.dataValues.gender}}">
+                    {{!-- <input type="radio" name="gender" id="female"  value="{{data.dataValues.gender}}"> Female --}}
                 </div>
                 <div class="d-grid mt-4">
-                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    <button type="submit" class="btn btn-info">Save</button>
                     {{#if message}}
                     <p class="text-danger">{{message}}</p>
                     {{/if}}

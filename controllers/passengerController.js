@@ -88,7 +88,7 @@ module.exports.passengerUpdatePost = async(req, res, next)=>{
         gender: req.body.gender
     },
     {
-        where: {passengerid: req.params.passenger_id}
+        where: {passenger_id: req.params.passenger_id}
     })
     res.redirect('/home')
 }
@@ -104,6 +104,13 @@ module.exports.passengerDelete = async(req, res, next)=>{
         });
         res.redirect('/')
     }
+}
+
+module.exports.passengerProfile = (req, res, next)=>{
+    res.render('passenger-profile',{
+        data: req.identity.Passenger
+    }
+    )
 }
 
 

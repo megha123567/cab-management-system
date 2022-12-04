@@ -10,7 +10,8 @@ router.post('/create/:cab_no', controller.bookingCreatePost);
 router.get('/update/:booking_id', controller.bookingUpdate);
 router.post('/update/:booking_id', controller.bookingUpdatePost);
 router.get('/delete/:booking_id', controller.bookingdelete);
-router.get('/payment/:cab_no', controller.payment);
-router.get('/paymentInvoice/:cab_no', controller.paymentInvoice);
+router.get('/payment/:booking_id', controller.payment);
+router.get('/paymentInvoice/:booking_id', controller.paymentInvoice);
+router.get('/paymentDetails/:booking_id', controller.paymentDetails);
 
 module.exports = router;

@@ -24,10 +24,10 @@ const Cab = db.sequelize.define('Cab', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    cost: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }
+    // cost: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false
+    // }
 });
 
 // Driver.hasMany(Cab,{as:'drivertable'});

@@ -19,16 +19,20 @@
                     <label for="totalCapacity">Total Capacity</label>
                     <input type="number" name="totalCapacity" id="totalCapacity" class="form-control">
                 </div>
-                 <div>
+                 {{!-- <div>
                     <label for="cost">Cost</label>
                     <input type="number" name="cost" id="cost" class="form-control">
-                </div>
+                </div> --}}
                 <div>
-                    <label for="driverId" >Driver Id</label>
-                    <input type="number" name="driverId" id="driverId" class="form-control">
+                    <label for="drivername" >Driver</label>
+                    <select name="drivername" id="drivername" class="form-control">
+                        {{#each driverName}}
+                        <option value={{this.dataValues.driver_name}}:{{this.dataValues.driver_id}} > {{this.dataValues.driver_name}}</option>
+                        {{/each}}
+                    </select>
                 </div>
                 <div class="d-grid mt-4">
-                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-outline-info">Save</button>
                 </div>
             </form>
         </div>

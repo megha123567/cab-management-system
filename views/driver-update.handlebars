@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <label for="driverpassword">Driver Password</label>
-                    <input type="password" name="driverpassword" id="driverpassword" class="form-control" value="{{data.dataValues.driver_password}}">
+                    <input type="text" name="driverpassword" id="driverpassword" class="form-control" value="{{data.dataValues.driver_password}}">
                 </div>
                 <div>
                     <label for="drivermobile">Driver Mobile</label>
@@ -29,15 +29,15 @@
                 </div>
                 <div>
                     <label for="driverdob">Driver Dob</label>
-                    <input type="date" name="driverdob" id="driverdob" class="form-control" value="{{data.dataValues.driver_dob}}">
+                    <input type="text" name="driverdob" id="driverdob" class="form-control" value="{{data.dataValues.driver_dob}}">
                 </div>
                 <div>
                     <label for="drivergender">Driver Gender</label>
-                    <input type="radio" name="drivergender" id="drivermale" value="{{data.dataValues.driver_gender}}">Male 
-                    <input type="radio" name="drivergender" id="driverfemale" value="{{data.dataValues.driver_gender}}">Female
+                    <input type="text" name="drivergender" id="drivergender"  class=" form-control" value="{{data.dataValues.driver_gender}}"> 
+                    {{!-- <input type="text" name="drivergender" id="driverfemale" value="{{data.dataValues.driver_gender}}">Female --}}
                 </div>
                 <div class="d-grid mt-4">
-                    <button class="btn btn-primary">Register</button>
+                    <button class="btn btn-primary">Save</button>
                 </div>
                 
             </form>

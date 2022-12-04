@@ -7,6 +7,7 @@ const cabRouter = require('./routes/cab');
 const driverRouter = require('./routes/driver');
 const bookingRouter = require('./routes/booking');
 const homeRouter = require('./routes/home');
+const paymnetRouter = require('./routes/payment');
 const {engine} = require('express-handlebars');
 const authMiddleware = require('./middlewares/authenticationMiddleware');
 const cookieSession = require('cookie-session')
@@ -30,6 +31,7 @@ app.use(authMiddleware);
 app.use(homeRouter);
 app.use(passengerRouter);
 app.use(indexRouter);
+app.use("/payment", paymnetRouter);
 app.use("/cab", cabRouter);
 
 app.use("/driver", driverRouter);

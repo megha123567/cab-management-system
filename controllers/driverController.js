@@ -62,7 +62,7 @@ module.exports.driverUpdatePost = async(req, res, next)=>{
         driver_gender: req.body.drivergender
         },
         {
-            where: {driverid : req.params.driver_id}
+            where: {driver_id : req.params.driver_id}
         }
     )
     res.redirect('/driver');

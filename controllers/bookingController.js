@@ -1,5 +1,6 @@
 const Booking = require('../models/booking');
 const Cab = require('../models/cab');
+const Payment = require('../models/payment');
 
 
 module.exports.bookingIndex = ( req, res, next)=>{
@@ -18,20 +19,26 @@ module.exports.bookingCreate = (req, res, next)=>{
 
 module.exports.bookingCreatePost = (req, res, next)=>{
     Cab.findByPk(req.params.cab_no).then((data)=>{
-        // console.log(data.driver_id);
-        // console.log('🚗🚗🚗🚗');
-        // console.log(req.identity.Passenger)
-        Booking.create({
-            // booking_id: req.body.bookingid, 
-            date_of_booking: req.body.dateofbooking, 
-            cab_from: req.body.cabfrom,
-            cab_to: req.body.cabto,
-            booking_time: req.body.bookingtime, 
-            cab_no: req.params.cab_no, 
-            cost: data.dataValues.cost,
-            passenger_id: req.identity.Passenger.passenger_id, 
-            driver_id: data.driver_id 
+
+        Payment.findOne(
+            {where:{
+                cab_from:req.body.cabfrom,
+                cab_to: req.body.cabto
+            }}
+        ).then((paymentDetails)=>{
+            Booking.create({
+                // booking_id: req.body.bookingid, 
+                date_of_booking: req.body.dateofbooking, 
+                cab_from: req.body.cabfrom,
+                cab_to: req.body.cabto,
+                booking_time: req.body.bookingtime, 
+                cab_no: req.params.cab_no, 
+                cost: paymentDetails.cost,
+                passenger_id: req.identity.Passenger.passenger_id, 
+                driver_id: data.driver_id 
+            })
         })
+       
         .then(user =>{
             res.redirect('/booking/payment/'+req.params.cab_no)
         })
@@ -63,7 +70,7 @@ module.exports.bookingUpdatePost = async(req, res, next)=>{
     {
         where: {bookingid : req.params.booking_id}
     })
-    res.redirect('/')
+    res.redirect('/booking')
 }
 
 module.exports.bookingdelete = async(req, res, next)=>{
@@ -75,19 +82,38 @@ module.exports.bookingdelete = async(req, res, next)=>{
                 booking_id: bookingid
             }
         });
-        res.redirect('/');
+        res.redirect('/booking');
     }
 }
 
 
-module.exports.payment = async(req, res, next)=>{
-    var payment = await Booking.findOne({where: {cab_no: req.params.cab_no}})
-    res.render('payment',
-    {
-        data:payment
+    module.exports.payment = async(req, res, next)=>{
+        
+        
+        var payment = await Booking.findOne({where: {booking_id: req.params.booking_id}})
+        // console.log(payment)
+        res.render('payment',
+        {
+            data:payment
+        })
+    }
+
+module.exports.paymentInvoice = async (req, res, next)=>{
+    Booking.findOne({where: {booking_id: req.params.booking_id}})
+    .then(result=>{
+        let name = req.identity.Passenger.fisrtName + " " + req.identity.Passenger.lastName
+        res.render('invoice',{
+            invoice: result,
+            name: name
+        })
     })
 }
 
-module.exports.paymentInvoice = async (req, res, next)=>{
-    res.render('invoice')
+module.exports.paymentDetails = async(req,res, next)=>{
+    var paymentDetails = await Booking.findOne({where: {booking_id: req.params.booking_id}})
+    // console.log(payment)
+    res.render('payment-details',
+    {
+        data:paymentDetails
+    })
 }

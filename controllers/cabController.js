@@ -1,4 +1,5 @@
 const Cab = require('../models/cab');
+const Driver = require('../models/driver');
 
 module.exports.index = (req, res, next) =>{
     Cab.findAll().then(cabs=>{
@@ -10,17 +11,29 @@ module.exports.index = (req, res, next) =>{
 
 
 module.exports.create = (req, res, next)=>{
-    res.render('cab-create');
+    // res.render('cab-create');
+    Driver.findAll().then((driver)=>{
+        console.log(driver)
+        res.render('cab-create', {
+            driverName : driver
+        })
+    })
 };
 
 module.exports.createPost = (req, res, next)=>{
+    var temp = req.body.drivername;
+    console.log('🛺🚕🚕🚕🚓')
+    console.log(temp)
+    var new_temp = temp.split(':');
+
+    console.log(new_temp);
     Cab.create({
         // cab_no: req.body.cabNo,
         cab_name: req.body.cabName,
         cab_description: req.body.cabDescription,
         total_capacity: req.body.totalCapacity,
-        driver_id: req.body.driverId,
-        cost: req.body.cost
+        driver_id: new_temp[1],
+        // cost: req.body.cost
     })
     .then(user =>{
         res.redirect('/cab');
@@ -44,10 +57,10 @@ module.exports.updatePost = async(req, res, next)=>{
             cab_description: req.body.cabDescription,
             total_capacity: req.body.totalCapacity,
             driver_id: req.body.driverId ,
-            cost: req.body.cost
+            // cost: req.body.cost
         },
         {
-            where: {cabNo : req.params.cab_no}
+            where: {cab_no : req.params.cab_no}
         }
     )
     res.redirect('/cab');

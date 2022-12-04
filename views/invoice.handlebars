@@ -1,47 +1,42 @@
-<div class="container">
+<pre>
 
-    <table class="table table-sm-6 table-dark">
-        <tr>
-            <th>Passenger Name</th>
-            {{!-- <td>asdfghj</td> --}}
-            <td>{{data.dataValues.fisrtName}}</td>
-        </tr>
-        <tr>
-            <th>Date</th>
-            {{!-- <td>2022-03-03</td> --}}
-            <td>{{data.dataValues.date_of_booking}}</td>
-        </tr>
-        <tr>
-            <th>Time</th>
-            {{!-- <td>5:09</td> --}}
-            <td>{{data.dataValues.booking_time}}</td>
-        </tr>
-        <tr>
-            <th>Pick up location</th>
-            {{!-- <td>asdfg</td> --}}
-            <td>{{data.dataValues.cab_from}}</td>
-        </tr>
-        <tr>
-            <th>Drop location</th>
-            {{!-- <td>werty</td> --}}
-            <td>{{data.dataValues.cab_to}}</td>
-        </tr>
-        <tr>
-            <th>Cost</th>
-            {{!-- <td>dfg</td> --}}
-            <td>{{data.dataValues.cost}}</td>
-        </tr>
-        <tr>
-            <th>Cab No</th>
-            {{!-- <td>wertj</td> --}}
-            <td>{{data.dataValues.cab_no}}</td>
-        </tr>
-        <tr>
-            <th>Driver</th>
-            {{!-- <td>sfgh</td> --}}
-            <td>{{data.dataValues.driver_id}}</td>
-        </tr>
-        
-        <button class="btn btn-success">Print pdf</button>
-    </table>
+
+</pre>
+<div class="col-sm-5 offset-sm-4">
+    <div class=" card w-75 text-center">
+  <div class="card-header">
+    <h4 class="card-title">Thank For Your Booking</h4>
+  </div>
+  <div class="card-body">
+    
+   <table class="table">
+            <tr>
+                <th>Name</th>
+                <td>{{name}}</td>
+            </tr>
+            <tr>
+                <th>Pick up location</th>
+                <td>{{invoice.dataValues.cab_from}}</td>
+            </tr>
+            <tr>
+                <th>Drop location</th>
+                <td>{{invoice.dataValues.cab_to}}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{invoice.dataValues.date_of_booking}}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{{invoice.dataValues.booking_time}}</td>
+            </tr>
+            
+            <tr>
+                <th>Cost</th>
+                <td>{{invoice.dataValues.cost}}</td>
+            </tr>
+        </table>
+     <button class="btn btn-success">Print pdf</button>
+  </div>
+</div>
 </div>

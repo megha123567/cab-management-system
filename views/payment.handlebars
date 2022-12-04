@@ -1,38 +1,37 @@
+<pre>
 
-{{!-- <div>
-    <table class="table">
-        <tr>
-            <td>From</td>
-            <td>To</td>
-            <td>cost</td>
-            <td><button class="btn btn-success">Pay now</button></td>
-        </tr>
-        {{#each data}}
-        <tr>
-            <td>{{data.dataValues.cab_from}}</td>
-            <td>{{data.dataValues.cab_to}}</td>
-            <td>{{data.dataValues.cost}}</td>
-            
-        </tr>
-        {{/each}}
-    </table>
-</div> --}}
-<div class="container">
-    <table class="table">
-        <tr>
-            <th>Cab From</th>
-            <th>Cab To</th>
-            <th>Cost</th>
-        </tr>
-        <tr>
-            <td>{{data.dataValues.cab_from}}</td>
-            <td>{{data.dataValues.cab_to}}</td>
-            <td>{{data.dataValues.cost}}</td>
-            <td>
-                <a href="/booking/paymentInvoice/{{data.dataValues.cab_no}}">
-                    <button class="btn btn-outline-success">Pay Now</button>
-                </a>
-            </td>
-        </tr>
-    </table>
+    
+</pre>
+<div class="col-sm-6 offset-sm-4">
+    <div class="card" style="width: 18rem;">
+        <table class="table">
+            <tr>
+                <th>Cab From</th>
+                <td>{{data.dataValues.cab_from}}</td>
+            </tr>
+            <tr>
+                <th>Cab To</th>
+                <td>{{data.dataValues.cab_to}}</td>
+            </tr>
+            <tr>
+                <th>Cost</th>
+                <td>{{data.dataValues.cost}}</td>
+            </tr>
+        </table>
+        <div class="col-sm-6 offset-sm-4">
+            <a href="/booking/paymentDetails/{{data.dataValues.booking_id}}">
+                <button class="btn btn-outline-success">Pay Now</button>
+            </a>
+        </div>
+
+    </div>
 </div>
+
+
+
+
+{{!--
+<td>
+
+</td>
+</tr> --}}
