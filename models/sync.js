@@ -30,8 +30,8 @@ Booking.belongsTo(Driver, {
 
 
 
-// Passenger.sync({alter: true});
-// Driver.sync({alter: true});
-// Cab.sync({alter: true});
-// Booking.sync({alter:true});
+Passenger.sync({alter: true});
+Driver.sync({alter: true});
+Cab.sync({alter: true});
+Booking.sync({alter:true});
 Payment.sync({alter:true});

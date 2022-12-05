@@ -114,6 +114,11 @@ module.exports.passengerProfile = (req, res, next)=>{
 }
 
 
+module.exports.logout = (req, res, next)=>{
+    req.session.passengerId = null;
+    return res.redirect('/login');
+}
+
 
 
 
