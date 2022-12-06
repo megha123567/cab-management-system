@@ -5,6 +5,7 @@ const router = express.Router();
 
 
 router.get('/', controller.bookingIndex);
+router.post('/', controller.bookingIndexPost);
 router.get('/create/:cab_no', controller.bookingCreate);
 router.post('/create/:cab_no', controller.bookingCreatePost);
 router.get('/update/:booking_id', controller.bookingUpdate);

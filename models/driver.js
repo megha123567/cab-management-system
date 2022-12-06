@@ -33,7 +33,7 @@ const Driver = db.sequelize.define('Driver', {
         allowNull: false
     },
     driver_dob: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
     },
     driver_gender: {
