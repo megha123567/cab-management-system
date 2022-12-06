@@ -10,11 +10,22 @@ module.exports.bookingIndex = ( req, res, next)=>{
         });
     });
 }
-module.exports.booking = (req, res, next)=>{
-    res.render('booking');
-}
+// module.exports.booking = (req, res, next)=>{
+//     Payment.findAll().then((payment)=>{
+//         res.render('booking', {
+//             Payment: payment
+//         });
+//     })
+// }
 module.exports.bookingCreate = (req, res, next)=>{
-    res.render('booking');
+    Payment.findAll().then((payment)=>{
+        // console.log('🚗🚗🚗🚗🚗🚗🚗')
+        // console.log(payment)
+        res.render('booking',{
+            data: payment
+        });
+    })
+    
 }
 
 module.exports.bookingCreatePost = (req, res, next)=>{
@@ -89,9 +100,12 @@ module.exports.bookingdelete = async(req, res, next)=>{
 
     module.exports.payment = async(req, res, next)=>{
         
+        // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz88888888888888888888')
         
+        console.log(req.params.booking_id)
         var payment = await Booking.findOne({where: {booking_id: req.params.booking_id}})
-        // console.log(payment)
+        // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz88888888888888888888')
+        console.log(payment)
         res.render('payment',
         {
             data:payment

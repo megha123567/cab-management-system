@@ -20,10 +20,10 @@ const Driver = db.sequelize.define('Driver', {
         allowNull: false,
         unique: true
     },
-    driver_password: {
-        type: DataTypes.STRING(10),
-        allowNull: false
-    },
+    // driver_password: {
+    //     type: DataTypes.STRING(10),
+    //     allowNull: false
+    // },
     driver_mobile: {
         type: DataTypes.BIGINT,
         allowNull: false

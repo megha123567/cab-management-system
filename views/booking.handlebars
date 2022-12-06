@@ -10,15 +10,17 @@
                 <div>
                      <label for="cabfrom">Cab from</label>
                      <select name="cabfrom" id="cabfrom" class="form-control">
-                        <option value="place1">Place 1</option>
-                        <option value="place2">Place 2</option>
+                        {{#each data}}
+                        <option value="{{this.dataValues.cab_from}}">{{this.dataValues.cab_from}}</option>
+                        {{/each}}
                      </select>
                 </div>
                 <div>
                     <label for="cabto">Cab To</label>
                      <select name="cabto" id="cabto" class="form-control">
-                        <option value="place6">Place 6</option>
-                        <option value="place7">Place 7</option>
+                        {{#each data}}
+                        <option value={{this.dataValues.cab_to}}>{{this.dataValues.cab_to}}</option>
+                        {{/each}}
                      </select>
                     
                 </div>

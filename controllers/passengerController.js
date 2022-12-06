@@ -63,7 +63,7 @@ module.exports.registerPost = async (req, res, next) => {
     });
 
     // res.redirect('home');
-    res.render('/cab')
+    res.render('/login')
 }
 
 module.exports.passengerUpdate = (req, res, next)=>{
