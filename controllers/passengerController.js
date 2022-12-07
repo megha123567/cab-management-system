@@ -25,7 +25,8 @@ module.exports.loginPost = async (req, res, next) => {
     }
     // console.log(userFromDb);
     // res.render('login');
-    req.session.passengerId = userFromDb.passenger_id
+    req.session.passengerId = userFromDb.passenger_id;
+    req.session.role == 1;
     // console.log("Login post======");
     console.log(req.session.passengerId)
 

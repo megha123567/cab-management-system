@@ -3,6 +3,8 @@ const controller = require('../controllers/driverController');
 
 const router = express.Router();
 
+router.get('/login', controller.driverLogin);
+router.post('/login', controller.driverLoginPost);
 router.get('/create', controller.driverRegister);
 router.post('/create', controller.driverRegisterPost);
 router.get('/', controller.driverIndex);

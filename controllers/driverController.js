@@ -9,31 +9,42 @@ module.exports.driverIndex = (req, res, next)=>{
     })
 }
 
+module.exports.driverLogin = (req, res, next)=>{
+    res. render('driver-login')
+}
+
+module.exports.driverLoginPost = async(req, res, next)=>{
+    var Credentials = await Driver.findAll({where: {
+        email: req.body.email,
+        password: req.body.password
+    }});
+
+    if(Credentials.length == 0){
+        return res.render('login',{message: 'invalid credentials'})
+    }
+    req.session.driverId = Credentials[0].dataValues.driver_id;
+    req.session.role == 0;
+    res.redirect('/home')
+}
+   
+
+
 module.exports.driverRegister = (req, res, next)=>{
     res.render('driver-register');
 }
 
 module.exports.driverRegisterPost = (req, res, next)=>{
-    // const {licenseno, drivername, driveremail, driverpassword, drivermobile, driveraddress, driverdob, drivergender} = req.body;
-    // let existingUser = await Driver.findOne({
-    //     where: {
-    //         driver_email: driveremail,
-    //     }
-    // });
-    // if(existingUser){
-    //     return req.render('driver-register', {message: 'Already registered'})
-    // }
      Driver.create({
         driver_license_no: req.body.licenseno,
         driver_name: req.body.drivername,
-        driver_email: req.body.driveremail,
-        driver_password: req.body.driverpassword,
+        email: req.body.email,
+        password: req.body.password,
         driver_mobile: req.body.drivermobile,
         driver_address: req.body.driveraddress,
         driver_dob: req.body.driverdob,
         driver_gender: req.body.drivergender
-    });
-    res.redirect('/driver')
+    })
+    res.redirect('/driver/login')
 }
 
 

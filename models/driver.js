@@ -15,15 +15,15 @@ const Driver = db.sequelize.define('Driver', {
         type: DataTypes.STRING(50),
         allowNull:false
     },
-    driver_email: {
+    email: {
         type: DataTypes.STRING(50),
         allowNull: false,
         unique: true
     },
-    // driver_password: {
-    //     type: DataTypes.STRING(10),
-    //     allowNull: false
-    // },
+    password: {
+        type: DataTypes.STRING(10),
+        allowNull: false
+    },
     driver_mobile: {
         type: DataTypes.BIGINT,
         allowNull: false
