@@ -9,22 +9,34 @@
                 </div> --}}
                 <div>
                     <label for="dateofbooking">Date of Booking</label>
-                    <input type="text" name="dateofbooking" id="dateofbooking" class="form-control" value="{{data.dataValues.date_of_booking}}">
+                    <input type="date" name="dateofbooking" id="dateofbooking" class="form-control" value="{{data.dataValues.date_of_booking}}">
                 </div>
                 <div>
                      <label for="cabfrom">Cab from</label>
-                     <select name="cabfrom" id="cabfrom" class="form-control">
+                     {{!-- <input type="text" name="cabfrom" id="cabfrom" class="form-control" value="{{data.dataValues.cab_from}}"> --}}
+                     {{!-- <select name="cabfrom" id="cabfrom" class="form-control">
                         {{#each data}}
                         <option value="{{this.dataValues.cab_from}}">{{this.dataValues.cab_from}}</option>
                         {{/each}}
+                     </select> --}}
+                     <select name="cabfrom" id="cabfrom" class="form-control">
+                        <option value="place1">place1</option>
+                        <option value="place2">place2</option>
+                        <option value="place3">place3</option>
                      </select>
                 </div>
                  <div>
                     <label for="cabto">Cab To</label>
-                     <select name="cabto" id="cabto" class="form-control">
+                    {{!-- <input type="text" name="cabto" id="cabto" class="form-control" value="{{data.dataValues.cab_to}}"> --}}
+                     {{!-- <select name="cabto" id="cabto" class="form-control">
                         {{#each data}}
                         <option value={{this.dataValues.cab_to}}>{{this.dataValues.cab_to}}</option>
                         {{/each}}
+                     </select> --}}
+                      <select name="cabto" id="cabto" class="form-control">
+                        <option value="place6">place6</option>
+                        <option value="place7">place7</option>
+                        <option value="place8">place8</option>
                      </select>
                     
                 </div>
@@ -32,10 +44,10 @@
                     <label for="bookingtime">Booking Time</label>
                     <input type="time" name="bookingtime" id="bookingtime" class="form-control" value="{{data.dataValues.booking_time}}">
                 </div>
-                <div>
+                {{!-- <div>
                     <label for="cabno">Cab No</label>
                     <input type="number" name="cabno" id="cabno" class="form-control" value="{{data.dataValues.cab_no}}">
-                </div>
+                </div> --}}
                 {{!-- <div>
                     <label for="cost">Cost</label>
                     <input type="number" name="cost" id="cost" class="form-control" value="{{data.dataValues.cost}}">

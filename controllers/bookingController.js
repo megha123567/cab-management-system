@@ -89,30 +89,32 @@ module.exports.bookingUpdate = (req, res, next) => {
 }
 
 module.exports.bookingUpdatePost = async (req, res, next) => {
-    
     var user = await Booking.findByPk(req.params.booking_id);
+    var loc = await Payment.findOne({where:{cab_from: req.body.cabfrom}})
+    console.log('111111111111111111111111111111111111111111111111111111111111')
+    console.log(loc)
     await Booking.update({
         date_of_booking: req.body.dateofbooking,
         cab_from: req.body.cabfrom,
         cab_to: req.body.cabto,
         booking_time: req.body.bookingtime,
         cab_no: req.body.cabno,
-        cost: req.body.cost,
+        cost: loc.dataValues.cost,
         passenger_id: req.body.passengerid,
         driver_id: req.body.driverid
     },
         {
             where: { booking_id: req.params.booking_id }
         })
-    res.redirect('/booking/payment/'+ req.params.booking_id)
+    res.redirect('/booking/payment/' + user.dataValues.booking_id)
 }
 
 module.exports.bookingdelete = async (req, res, next) => {
     let bookingid = req.params.booking_id;
-    console.log('2345678545'+bookingid)
+    console.log('2345678545' + bookingid)
     let user = await Booking.findByPk(bookingid);
     if (user) {
-         Booking.destroy({
+        Booking.destroy({
             where: {
                 booking_id: bookingid
             }
@@ -128,8 +130,8 @@ module.exports.payment = async (req, res, next) => {
 
     console.log(req.params.booking_id)
     var payment = await Booking.findOne({ where: { booking_id: req.params.booking_id } })
-    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz88888888888888888888')
-    console.log(payment)
+    // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz88888888888888888888')
+    // console.log(payment)
     res.render('payment',
         {
             data: payment
