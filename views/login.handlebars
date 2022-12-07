@@ -1,20 +1,20 @@
 <pre>
 
 </pre>
-<h1 class="text-center" >Login</h1>
- <div class="container">
+<h1 class="text-center">Login</h1>
+<div class="container">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             <form method="post">
-                 <div>
-                    <label for="email" >Email</label>
+                <div>
+                    <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="me@email.com">
                 </div>
-                 <div>
+                <div>
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
-             
+
                 <div class="d-grid mt-3">
                     <button class="btn btn-outline-info">Login</button>
 
@@ -27,6 +27,56 @@
                 <p>You don't have an account? <a href="/register">Register</a></p>
             </div>
         </div>
-        
+
     </div>
- </div>
+</div>
+
+
+
+{{!--
+<div class="card text-bg-light">
+    <div class="col-sm-8 offset-sm-4">
+        <img src="https://img.freepik.com/premium-photo/front-view-generic-brandless-moder-car_110488-502.jpg?w=1060"
+            class="card-img" height="552px" width="100%">
+    </div>
+
+    <div class="card-img-overlay">
+        <pre>
+
+
+
+        </pre>
+        <div class="col-sm-6 offset-sm-1">
+            <div class="card w-80 shadow">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Login</h2>
+                </div>
+                <div class="card-body">
+
+                    <form method="post">
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="me@email.com">
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+
+                        <div class="d-grid mt-3">
+                            <button class="btn btn-outline-info">Login</button>
+
+                            {{#if message}}
+                            <p class="text-danger">{{message}}</p>
+                            {{/if}}
+                        </div>
+                    </form>
+                    <pre></pre>
+                    <div>
+                        <p>You don't have an account? <a href="/register">Register</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}

@@ -89,6 +89,7 @@ module.exports.bookingUpdate = (req, res, next) => {
 }
 
 module.exports.bookingUpdatePost = async (req, res, next) => {
+    
     var user = await Booking.findByPk(req.params.booking_id);
     await Booking.update({
         date_of_booking: req.body.dateofbooking,
@@ -101,21 +102,22 @@ module.exports.bookingUpdatePost = async (req, res, next) => {
         driver_id: req.body.driverid
     },
         {
-            where: { bookingid: req.params.booking_id }
+            where: { booking_id: req.params.booking_id }
         })
-    res.redirect('/booking')
+    res.redirect('/booking/payment/'+ req.params.booking_id)
 }
 
 module.exports.bookingdelete = async (req, res, next) => {
     let bookingid = req.params.booking_id;
+    console.log('2345678545'+bookingid)
     let user = await Booking.findByPk(bookingid);
     if (user) {
-        await Booking.destroy({
+         Booking.destroy({
             where: {
                 booking_id: bookingid
             }
         });
-        res.redirect('/booking');
+        res.redirect('/cab/cabavailable');
     }
 }
 
@@ -126,7 +128,7 @@ module.exports.payment = async (req, res, next) => {
 
     console.log(req.params.booking_id)
     var payment = await Booking.findOne({ where: { booking_id: req.params.booking_id } })
-    // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz88888888888888888888')
+    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz88888888888888888888')
     console.log(payment)
     res.render('payment',
         {

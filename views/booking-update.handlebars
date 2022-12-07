@@ -12,12 +12,21 @@
                     <input type="text" name="dateofbooking" id="dateofbooking" class="form-control" value="{{data.dataValues.date_of_booking}}">
                 </div>
                 <div>
-                    <label for="cabfrom">Cab From</label>
-                    <input type="text" name="cabfrom" id="cabfrom" class="form-control" value="{{data.dataValues.cab_from}}">
+                     <label for="cabfrom">Cab from</label>
+                     <select name="cabfrom" id="cabfrom" class="form-control">
+                        {{#each data}}
+                        <option value="{{this.dataValues.cab_from}}">{{this.dataValues.cab_from}}</option>
+                        {{/each}}
+                     </select>
                 </div>
-                <div>
+                 <div>
                     <label for="cabto">Cab To</label>
-                    <input type="text" name="cabto" id="cabto" class="form-control" value="{{data.dataValues.cab_to}}">
+                     <select name="cabto" id="cabto" class="form-control">
+                        {{#each data}}
+                        <option value={{this.dataValues.cab_to}}>{{this.dataValues.cab_to}}</option>
+                        {{/each}}
+                     </select>
+                    
                 </div>
                 <div>
                     <label for="bookingtime">Booking Time</label>
@@ -27,20 +36,20 @@
                     <label for="cabno">Cab No</label>
                     <input type="number" name="cabno" id="cabno" class="form-control" value="{{data.dataValues.cab_no}}">
                 </div>
-                <div>
+                {{!-- <div>
                     <label for="cost">Cost</label>
                     <input type="number" name="cost" id="cost" class="form-control" value="{{data.dataValues.cost}}">
-                </div>
-                <div>
+                </div> --}}
+                {{!-- <div>
                     <label for="passengerid">Passenger Id</label>
                     <input type="number" name="passengerid" id="passengerid" class="form-control" value="{{data.dataValues.passenger_id}}">
-                </div>
-                <div>
+                </div> --}}
+                {{!-- <div>
                     <label for="driverid">Driver Id</label>
                     <input type="number" name="driverid" id="driverid" class="form-control" value="{{data.dataValues.driver_id}}">
-                </div>
+                </div> --}}
                 <div class="d-grid mt-4">
-                    <button type="submit" class="btn btn-outline-info">Save</button>
+                    <button type="submit" class="btn btn-outline-info"><a href="/booking/payment/{{data.dataValue.booking_id}}">save</a></button>
                 </div>
             </form>
         </div>

@@ -18,7 +18,7 @@ module.exports.paymentCreatePost = (req, res, next)=>{
         cab_to: req.body.cabto,
         cost: req.body.cost
     });
-    res.redirect('/')
+    res.redirect('/payment/index')
 }
 
 module.exports.paymentUpdate = (req, res, next)=>{
