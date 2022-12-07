@@ -28,12 +28,14 @@
 
         </div>
     </div>
+<pre></pre>
+    <div>
+        <p>You want to edit or cancel your booking?
+        <div>
+            <a href="/booking/update/{{data.dataValues.booking_id}}">Edit booking</a> | <a
+                href="/booking/delete/{{data.dataValues.booking_id}}" class="text-danger"
+                onclick="return confirm('Are you sure you want to cancel the booking')">Cancel booking</a> </p>
 
-    <div>
-        <button class="btn btn-outline-info"><a href="/booking/update/{{data.dataValues.booking_id}}">Update booking</a></button>
-    </div>
-    <div>
-        <button class="btn btn-outline-info"><a href="/booking/delete/{{data.dataValues.booking_id}}" class="text-danger"
-                        onclick="return confirm('Are you sure you want to cancel the booking')">Cancel the booking</a></button>
+        </div>
     </div>
 </div>
