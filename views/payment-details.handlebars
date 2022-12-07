@@ -1,12 +1,7 @@
-<pre>
-
-    
-</pre>
-
-<div class="col-sm-6 offset-sm-3">
+{{!-- <div class="col-sm-6 offset-sm-3">
     <div class="card">
         <div class="card-header">
-           <h4>Payment Details</h4> 
+            <h4>Payment Details</h4>
         </div>
         <div class="card-body">
             <div>
@@ -21,21 +16,66 @@
                 <label for="expirydate">Card Expiry Date</label>
                 <input type="date" name="expirydate" id="expirydate" class="form-control">
             </div>
-            {{!-- <div>
-                <label for="cvv">CVV Number</label>
-                <input type="number" name="cvv" id="cvv" class="form-control">
-            </div> --}}
             <div>
                 <div>
                     <label for="amount">Amount</label>
                     <div>{{data.dataValues.cost}}</div>
                 </div>
-                
+
             </div>
 
         </div>
         <div class="col-sm-6 offset-sm-5">
-            <button class="btn btn-outline-success"><a href="/booking/paymentInvoice/{{data.dataValues.booking_id}}">Pay Now</a></button>
+            <button class="btn btn-outline-success"><a href="/booking/paymentInvoice/{{data.dataValues.booking_id}}">Pay
+                    Now</a></button>
+        </div>
+    </div>
+</div> --}}
+
+<div class="card text-bg-light">
+    <div class="col-sm-8 offset-sm-4">
+        <img src="https://img.freepik.com/premium-photo/front-view-generic-brandless-moder-car_110488-502.jpg?w=1060"
+            class="card-img" height="552px" width="100%">
+    </div>
+
+    <div class="card-img-overlay">
+        <pre>
+
+
+
+        </pre>
+        <div class="col-sm-6 offset-sm-1">
+            <div class="card w-80 shadow">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Payment Details</h2>
+                </div>
+                <div class="card-body">
+                    <div>
+                    <label for="cardholdername">Card Holder Name</label>
+                    <input type="text" name="cardholdername" id="cardholdername" class="form-control">
+                </div>
+                <div>
+                    <label for="cardnumber">Card Number</label>
+                    <input type="number" name="cardnumber" id="cardnumber" class="form-control">
+                </div>
+                <div>
+                    <label for="expirydate">Card Expiry Date</label>
+                    <input type="date" name="expirydate" id="expirydate" class="form-control">
+                </div>
+                <div>
+                    <div>
+                        <label for="amount">Amount</label>
+                        <div>{{data.dataValues.cost}}</div>
+                    </div>
+
+                </div>
+
+                <pre></pre>
+                <div class="col-sm-6 offset-sm-5">
+                    <button class="btn btn-outline-success"><a
+                            href="/booking/paymentInvoice/{{data.dataValues.booking_id}}">Pay Now</a></button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

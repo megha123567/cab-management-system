@@ -1,4 +1,4 @@
-<pre>
+{{!-- <pre>
 
 
 </pre>
@@ -41,6 +41,65 @@
                 <button class="btn btn-outline-info"><a href="/booking">View all booking</a></button>
             </div>
             {{/if}}
+        </div>
+    </div>
+</div> --}}
+
+<div class="card text-bg-light">
+    <div class="col-sm-8 offset-sm-4">
+        <img src="https://img.freepik.com/premium-photo/front-view-generic-brandless-moder-car_110488-502.jpg?w=1060"
+            class="card-img" height="552px" width="100%">
+    </div>
+
+    <div class="card-img-overlay">
+        <pre>
+
+
+
+        </pre>
+        <div class="col-sm-6 offset-sm-1">
+            <div class="card w-80 shadow">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Your Profile</h2>
+                </div>
+                <div class="card-body">
+
+                   
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <td>{{data.fisrtName}} {{data.lastName}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{data.email}}</td>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>{{data.mobile}}</td>
+                </tr>
+                <tr>
+                    <th>Date Of Birth</th>
+                    <td>{{data.dob}}</td>
+                </tr>
+            </table>
+                    <pre></pre>
+                    <div>
+                <button class="btn btn-outline-info"><a href="/update/{{data.passenger_id}}">Update your
+                        profile</a></button>
+                <button class="btn btn-outline-info"><a href="/delete/{{data.passenger_id}}"
+                        onclick="return confirm('Are you sure you want to delete this') ">Delete your
+                        profile</a></button>
+            </div>
+            <pre></pre>
+            {{#if data.role}}
+            <div>
+                <button class="btn btn-outline-info"><a href="/">View all passengers</a></button>
+                <button class="btn btn-outline-info"><a href="/booking">View all booking</a></button>
+            </div>
+            {{/if}}
+                </div>
+            </div>
         </div>
     </div>
 </div>
