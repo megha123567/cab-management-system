@@ -13,7 +13,7 @@
                         {{!-- <option value="place1">place1</option>
                         <option value="place2">place2</option>
                         <option value="place3">place3</option> --}}
-                        {{#each data}}
+                        {{#each pickup}}
                         <option value="{{this.dataValues.cab_from}}">{{this.dataValues.cab_from}}</option>
                         {{/each}}
                      </select>
@@ -24,7 +24,7 @@
                         {{!-- <option value="place6">place6</option>
                         <option value="place7">place7</option>
                         <option value="place8">place8</option> --}}
-                        {{#each data}}
+                        {{#each cabto}}
                         <option value={{this.dataValues.cab_to}}>{{this.dataValues.cab_to}}</option>
                         {{/each}}
                      </select>

@@ -1,5 +1,6 @@
 const Booking = require('../models/booking');
 const Cab = require('../models/cab');
+const { sequelize } = require('../models/db');
 const Payment = require('../models/payment');
 
 
@@ -37,14 +38,37 @@ module.exports.bookingIndexPost = async (req, res, next) => {
         })
     }
 }
-module.exports.bookingCreate = (req, res, next) => {
-    Payment.findAll().then((payment) => {
-        // console.log('🚗🚗🚗🚗🚗🚗🚗')
-        // console.log(payment)
-        res.render('booking', {
-            data: payment
-        });
+module.exports.bookingCreate =async(req, res, next) => {
+    // Payment.findAll().then((payment) => {
+    //     // console.log('🚗🚗🚗🚗🚗🚗🚗')
+    //     // console.log(payment)
+    //     res.render('booking', {
+    //         data: payment
+    //     });
+    // })
+
+    var payment = await Payment.findAll({});
+    Payment.findAll({
+        attributes: [
+            [sequelize.fn('DISTINCT', sequelize.col('cab_from')), 'cab_from'],
+    
+        ]
+    }).then(resultfrom=>{
+        Payment.findAll({
+            attributes: [
+                [sequelize.fn('DISTINCT', sequelize.col('cab_to')), 'cab_to'],
+        
+            ]
+        }).then(resultto=> {
+            res.render('booking', {
+                data: payment,
+                pickup: resultfrom,
+                cabto : resultto
+            });
+        })
+       
     })
+
 
 }
 
@@ -69,12 +93,12 @@ module.exports.bookingCreatePost = (req, res, next) => {
                 cost: paymentDetails.cost,
                 passenger_id: req.identity.Passenger.passenger_id,
                 driver_id: data.driver_id
+            }) .then(user => {
+                res.redirect('/booking/payment/' + user.booking_id)
             })
         })
 
-            .then(user => {
-                res.redirect('/booking/payment/' + req.params.cab_no)
-            })
+           
     })
 
 }
@@ -91,8 +115,8 @@ module.exports.bookingUpdate = (req, res, next) => {
 module.exports.bookingUpdatePost = async (req, res, next) => {
     var user = await Booking.findByPk(req.params.booking_id);
     var loc = await Payment.findOne({where:{cab_from: req.body.cabfrom}})
-    console.log('111111111111111111111111111111111111111111111111111111111111')
-    console.log(loc)
+    // console.log('111111111111111111111111111111111111111111111111111111111111')
+    // console.log(loc)
     await Booking.update({
         date_of_booking: req.body.dateofbooking,
         cab_from: req.body.cabfrom,
