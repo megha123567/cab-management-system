@@ -5,7 +5,8 @@ const Driver = require('../models/driver');
 module.exports = async (req, res, next) => {
     req.identity = {
         isAuthenticated: false,
-        Passenger: null
+        Passenger: null,
+        // Driver: null
     }
 
     var role = req.session.role
@@ -51,8 +52,11 @@ module.exports = async (req, res, next) => {
         if( userFromDb == null){
             return res.redirect('/driver/login');
         }
+
+        
+
         req.identity.isAuthenticated = true;
-        req.identity.Passenger = {
+        req.identity.Driver = {
             driver_license_no: userFromDb.dataValues.licenseno,
             driver_name: userFromDb.dataValues.drivername,
             email: userFromDb.dataValues.email,

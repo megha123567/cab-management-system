@@ -1,6 +1,6 @@
 <h1 class="text-center" >Driver Details</h1>
 <div class="container" >
-    <button class="btn btn-outline-info shadow"><a href="/driver/create">Add Driver</a></button>
+    {{!-- <button class="btn btn-outline-info shadow"><a href="/driver/create">Add Driver</a></button> --}}
     <pre>
     </pre>
     <table class="table table-striped" >
@@ -21,8 +21,8 @@
             <td>{{this.dataValues.driver_id}}</td>
             <td>{{this.dataValues.driver_license_no}}</td>
             <td>{{this.dataValues.driver_name}}</td>
-            <td>{{this.dataValues.driver_email}}</td>
-            <td>{{this.dataValues.driver_password}}</td>
+            <td>{{this.dataValues.email}}</td>
+            <td>{{this.dataValues.password}}</td>
             <td>{{this.dataValues.driver_mobile}}</td>
             <td>{{this.dataValues.driver_address}}</td>
             <td>{{this.dataValues.driver_dob}}</td>

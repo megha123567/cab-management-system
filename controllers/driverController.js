@@ -1,4 +1,5 @@
 const Driver = require('../models/driver');
+const Booking = require('../models/booking');
 
 
 module.exports.driverIndex = (req, res, next)=>{
@@ -23,8 +24,10 @@ module.exports.driverLoginPost = async(req, res, next)=>{
         return res.render('login',{message: 'invalid credentials'})
     }
     req.session.driverId = Credentials[0].dataValues.driver_id;
+    console.log('this is from authentication middleware: '+req.session.driverId)
     req.session.role == 0;
-    res.redirect('/home')
+    
+    res.redirect('/driver/profile')
 }
    
 
@@ -91,3 +94,38 @@ module.exports.driverDelete = async(req, res, next)=>{
         res.redirect('/driver');
     }
 }
+
+
+ module.exports.driverProfile = (req, res, next)=>{
+    // console.log('2222222222222222222222222222222222')
+    // console.log(req.session.Driver)
+    Driver.findByPk(
+      
+            req.session.driverId
+        
+    ).then(result => {
+        res.render('driver-profile',{
+            user: result
+        })
+
+    })
+   
+ }
+
+
+ module.exports.allBooking = (req, res, next)=>{
+    console.log('999999999999999999999999999999999')
+    console.log(req.session.driverId)
+Booking.findAll({
+    where: {
+        driver_id : req.session.driverId
+    }
+
+}).then(result =>{
+    res.render('driver-booking', {
+        data: result
+        
+    })
+   
+})
+ }

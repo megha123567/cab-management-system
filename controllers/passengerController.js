@@ -14,19 +14,24 @@ module.exports.login = (req, res, next) => {
 }
 
 module.exports.loginPost = async (req, res, next) => {
+
+    // res.send('ok')
     const { email, password } = req.body;
     const userFromDb = await Passenger.findOne({
         where: { email: email, password: password }
     });
+    // console.log('line 23')
+    // console.log(userFromDb);
+
 
     if (userFromDb == null) {
         return res.render('login', { message: 'No user with this email or password' })
         // console.log('user not find');
     }
-    // console.log(userFromDb);
+    // console.log('line 29')
     // res.render('login');
     req.session.passengerId = userFromDb.passenger_id;
-    req.session.role == 1;
+    req.session.role = 1;
     // console.log("Login post======");
     console.log(req.session.passengerId)
 
@@ -108,6 +113,8 @@ module.exports.passengerDelete = async(req, res, next)=>{
 }
 
 module.exports.passengerProfile = (req, res, next)=>{
+    console.log('4444444444444444444444444444444444444444444444')
+    console.log(req.identity.Passenger)
     res.render('passenger-profile',{
         data: req.identity.Passenger
     }

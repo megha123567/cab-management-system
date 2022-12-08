@@ -1,0 +1,44 @@
+<h1 class="text-center">Booking Details</h1>
+<div class="container">
+    <div>
+        {{#if found}}
+        <div class="alert alert-info" role="alert">No Booking Found
+</div>
+{{/if}}
+    </div>
+    <pre>
+    </pre>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Booking Id</th>
+                <th>Date of booking</th>
+                <th>Cab From</th>
+                <th>Cab To</th>
+                <th>Booking Time</th>
+                <th>Cab No</th>
+                <th>Cost</th>
+                {{!-- <th>Passenger Id</th>
+                <th>Driver Id</th> --}}
+                {{!-- <th>Edit/Delete</th> --}}
+            </tr>
+            {{#each data}}
+
+            <tr>
+                <td>{{this.dataValues.booking_id}}</td>
+                <td>{{this.dataValues.date_of_booking}}</td>
+                <td>{{this.dataValues.cab_from}}</td>
+                <td>{{this.dataValues.cab_to}}</td>
+                <td>{{this.dataValues.booking_time}}</td>
+                <td>{{this.dataValues.cab_no}}</td>
+                <td>{{this.dataValues.cost}}</td>
+                {{!-- <td>{{this.dataValues.passenger_id}}</td>
+                <td>{{this.dataValues.driver_id}}</td> --}}
+
+            </tr>
+            {{/each}}
+        </table>
+
+    </div>
+
+</div>
