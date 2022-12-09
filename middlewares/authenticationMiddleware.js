@@ -10,11 +10,13 @@ module.exports = async (req, res, next) => {
     }
 
     var role = req.session.role
+    console.log('my role is '+ role)
     if(req.session.role == 1){
         if (req.url == "/login"  || req.url == "/register" ) {
             return next();
     }
     let passengerId = req.session.passengerId;
+    console.log('my passengerid is '+ passengerId)
     if (!passengerId || passengerId == null) {
         return res.redirect("/login");
     }
